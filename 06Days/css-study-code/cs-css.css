@@ -1,0 +1,12 @@
+@import url("./box.css");
+
+div {
+  font-size: 50px;
+  color:white;
+  text-decoration: underline;
+  background-color: black;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
