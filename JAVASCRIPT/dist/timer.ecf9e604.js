@@ -117,34 +117,20 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"arrowFunc.js":[function(require,module,exports) {
-// 화살표 함수
-// () => {} vs function () {}
+})({"timer.js":[function(require,module,exports) {
+// 타이머 함수
+// setTimeout(함수, 시간): 일정 시간 후 함수 실행
+// setInterval(함수, 시간): 시간 간격마다 함수 실행
+// clearTimeout(): 설정된 Timeout 함수를 종료
+// clearInterval(): 설정된 Interval 함수를 종료
 
-var double = function double(x) {
-  return x * 2;
-};
-console.log('double:', double(7));
-var doubleArrow = function doubleArrow(x) {
-  return x * 2;
-};
-console.log('doubleArrow:', doubleArrow(7));
-var doubleArrowShorten = function doubleArrowShorten(x) {
-  return x * 2;
-};
-console.log('doubleArrowShorten:', doubleArrowShorten(7));
-var doubleArrowMoreShorten = function doubleArrowMoreShorten(x) {
-  return x * 2;
-};
-console.log('doubleArrowMoreShorten:', doubleArrowMoreShorten(7));
-var doubleArrowObject = function doubleArrowObject(x) {
-  return {
-    name: 'dknw',
-    age: '20'
-  };
-};
-console.log('doubleArrowObject', doubleArrowObject(7));
-// 객체형은 {}을 쓰는데 이 기호가 함수의 선언과 겹치게 되어 ()를 앞에 붙힘
+setTimeout(function () {
+  console.log("Hello, World!");
+}, 2000); // 1000ms -> 1초
+
+setTimeout(function () {
+  console.log("Hello, World!");
+}, 2000);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -314,5 +300,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","arrowFunc.js"], null)
-//# sourceMappingURL=/arrowFunc.b4c31d1b.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","timer.js"], null)
+//# sourceMappingURL=/timer.ecf9e604.js.map

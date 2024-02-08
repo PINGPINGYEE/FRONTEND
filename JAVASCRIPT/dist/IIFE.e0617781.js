@@ -117,34 +117,21 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"arrowFunc.js":[function(require,module,exports) {
-// 화살표 함수
-// () => {} vs function () {}
+})({"IIFE.js":[function(require,module,exports) {
+// 즉시실행함수
+// IIFE, Immediately-Invoked Function Expression
 
-var double = function double(x) {
-  return x * 2;
-};
-console.log('double:', double(7));
-var doubleArrow = function doubleArrow(x) {
-  return x * 2;
-};
-console.log('doubleArrow:', doubleArrow(7));
-var doubleArrowShorten = function doubleArrowShorten(x) {
-  return x * 2;
-};
-console.log('doubleArrowShorten:', doubleArrowShorten(7));
-var doubleArrowMoreShorten = function doubleArrowMoreShorten(x) {
-  return x * 2;
-};
-console.log('doubleArrowMoreShorten:', doubleArrowMoreShorten(7));
-var doubleArrowObject = function doubleArrowObject(x) {
-  return {
-    name: 'dknw',
-    age: '20'
-  };
-};
-console.log('doubleArrowObject', doubleArrowObject(7));
-// 객체형은 {}을 쓰는데 이 기호가 함수의 선언과 겹치게 되어 ()를 앞에 붙힘
+var a = 7;
+function double() {
+  console.log(a * 2);
+}
+double();
+(function () {
+  console.log(a * 2);
+})();
+(function () {
+  console.log(a * 2);
+})();
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -314,5 +301,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","arrowFunc.js"], null)
-//# sourceMappingURL=/arrowFunc.b4c31d1b.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","IIFE.js"], null)
+//# sourceMappingURL=/IIFE.e0617781.js.map
