@@ -1,0 +1,18 @@
+html {
+  font-size: 20px;
+}
+
+.parent {
+  width: 300px;
+  height: 200px;
+  background-color: royalblue;
+  font-size: 10px;
+}
+
+.child {
+  /* width: 10em; */
+  /* height: 10rem; */
+  width:50vw;
+  height: 50vh;
+  background-color: orange; 
+}

@@ -1,0 +1,13 @@
+.parent {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  padding: 20px;
+  overflow: auto;
+}
+
+.child {
+  width: 200px;
+  height:  50px;
+  background-color: orange;
+}
