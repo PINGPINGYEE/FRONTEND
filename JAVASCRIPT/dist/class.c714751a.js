@@ -117,48 +117,49 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"timer.js":[function(require,module,exports) {
-// 타이머 함수
-// setTimeout(함수, 시간): 일정 시간 후 함수 실행
-// setInterval(함수, 시간): 시간 간격마다 함수 실행
-// clearTimeout(): 설정된 Timeout 함수를 종료
-// clearInterval(): 설정된 Interval 함수를 종료
+})({"class.js":[function(require,module,exports) {
+var dkn = function dkn() {
+  return {
+    firstName: 'dkn',
+    lastName: 'dnkt',
+    getFullName: function getFullName() {
+      return "".concat(this.firstName, " ").concat(this.lastName);
+    }
+  };
+};
 
-// let cnt = 0;
+// console.log(dkn().getFullName());
 
-// setTimeout(function () {
-//     console.log("TimeOut!1");
-// }, 2000); // 1000ms -> 1초
+var dknLiteral = {
+  firstName: 'dkn',
+  lastName: 'dnkt',
+  getFullName: function getFullName() {
+    return "".concat(this.firstName, " ").concat(this.lastName);
+  }
+};
 
-// setTimeout(() => {
-//   console.log("TimeOut!2");
-// }, 1000);
+// console.log(dknLiteral.getFullName());
 
-// setInterval(function () {
-//   if(cnt<10) {console.log("Interval1!"); cnt++;}
-// }, 500)
+function User(first, last) {
+  this.firstName = first;
+  this.lastName = last;
+} // 리터럴 방식
 
-// setInterval(() => {
-//   if(cnt<10) {console.log("Interval2!"); cnt++;}
-// }, 1000)
+User.prototype.getFullName = function () {
+  return "".concat(this.firstName, " ").concat(this.lastName);
+}; // prototype 이해
 
-var timer = setTimeout(function () {
-  console.log("SettimeOutClear!");
-}, 3000);
-var h2El = document.querySelector('h2');
-h2El.addEventListener('click', function () {
-  clearTimeout(timer);
-});
-// defer 잘 생각해주기
-
-var timerInterval = setInterval(function () {
-  console.log("setIntervalClear!");
-}, 3000);
-var h3El = document.querySelector('h3');
-h3El.addEventListener('click', function () {
-  clearInterval(timerInterval);
-});
-// defer 잘 생각해주기
+var amy = new User('Amy', 'cousious');
+var neo = new User('Neo', 'Smith');
+console.log(amy);
+console.log(neo);
+console.log(amy.getFullName());
+console.log(neo.getFullName());
+var a = [1, 2, 3];
+var judgeIncludes = a.includes(3);
+console.log(judgeIncludes);
+judgeIncludes = a.includes(4);
+console.log(judgeIncludes);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -328,5 +329,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","timer.js"], null)
-//# sourceMappingURL=/timer.ecf9e604.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","class.js"], null)
+//# sourceMappingURL=/class.c714751a.js.map
