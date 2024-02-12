@@ -133,6 +133,10 @@ function getType(data) {
 var _getType = _interopRequireDefault(require("./getType"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+var PI = 3.141592;
+var str = PI.toFixed(2);
+console.log(str);
+console.log("--typeof--");
 console.log(_typeof("hello, world!"));
 console.log(_typeof(123));
 console.log(_typeof(true));
@@ -140,6 +144,11 @@ console.log(typeof undefined === "undefined" ? "undefined" : _typeof(undefined))
 console.log(_typeof(null));
 console.log(_typeof({}));
 console.log(_typeof([]));
+console.log(_typeof(PI));
+console.log(_typeof(str));
+str = parseInt(str);
+console.log(_typeof(str));
+console.log("--getType--");
 console.log((0, _getType.default)(123));
 console.log((0, _getType.default)(false));
 console.log((0, _getType.default)(null));
@@ -170,7 +179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6925" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50077" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -117,49 +117,57 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"class.js":[function(require,module,exports) {
-var dkn = function dkn() {
-  return {
-    firstName: 'dkn',
-    lastName: 'dnkt',
-    getFullName: function getFullName() {
-      return "".concat(this.firstName, " ").concat(this.lastName);
-    }
-  };
-};
+})({"ES6-classes.js":[function(require,module,exports) {
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+var _this = this;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+// ES6 Classes
 
-// console.log(dkn().getFullName());
-
-var dknLiteral = {
-  firstName: 'dkn',
-  lastName: 'dnkt',
-  getFullName: function getFullName() {
-    return "".concat(this.firstName, " ").concat(this.lastName);
+var firstPerson = {
+  name: 'firstPerson',
+  normal: function normal() {
+    // 축약 가능
+    console.log(this.name);
+  },
+  arrow: function arrow() {
+    console.log(_this.name);
   }
 };
+firstPerson.normal();
+firstPerson.arrow();
 
-// console.log(dknLiteral.getFullName());
+// function User(first, last) {
+//   this.firstName = first;
+//   this.lastName = last;
+// }
 
-function User(first, last) {
-  this.firstName = first;
-  this.lastName = last;
-} // 리터럴 방식
-
-User.prototype.getFullName = function () {
-  return "".concat(this.firstName, " ").concat(this.lastName);
-}; // prototype 이해
-
+// User.prototype.getFullName = function() {
+//   return `${this.firstName} ${this.lastName}`;
+// }
+var User = /*#__PURE__*/function () {
+  function User(first, last) {
+    _classCallCheck(this, User);
+    this.firstName = first;
+    this.lastName = last;
+  }
+  _createClass(User, [{
+    key: "getFullName",
+    value: function getFullName() {
+      return "".concat(this.firstName, " ").concat(this.lastName);
+    }
+  }]);
+  return User;
+}();
 var amy = new User('Amy', 'cousious');
 var neo = new User('Neo', 'Smith');
 console.log(amy);
 console.log(neo);
 console.log(amy.getFullName());
 console.log(neo.getFullName());
-var a = [1, 2, 3];
-var judgeIncludes = a.includes(3);
-console.log(judgeIncludes);
-judgeIncludes = a.includes(4);
-console.log(judgeIncludes);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -329,5 +337,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","class.js"], null)
-//# sourceMappingURL=/class.c714751a.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","ES6-classes.js"], null)
+//# sourceMappingURL=/ES6-classes.d606c087.js.map

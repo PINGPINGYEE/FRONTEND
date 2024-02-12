@@ -117,49 +117,40 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"class.js":[function(require,module,exports) {
-var dkn = function dkn() {
-  return {
-    firstName: 'dkn',
-    lastName: 'dnkt',
-    getFullName: function getFullName() {
-      return "".concat(this.firstName, " ").concat(this.lastName);
-    }
-  };
-};
+})({"this.js":[function(require,module,exports) {
+var _this = this;
+// this
+// 일반(Normal) 함수는 호출 위치에서 따라 this 정의!
+// 화살표(Arrow) 함수는 자신이 선언된 함수 범위에서 this 정의!
 
-// console.log(dkn().getFullName());
-
-var dknLiteral = {
-  firstName: 'dkn',
-  lastName: 'dnkt',
-  getFullName: function getFullName() {
-    return "".concat(this.firstName, " ").concat(this.lastName);
+var firstPerson = {
+  name: 'firstPerson',
+  normal: function normal() {
+    console.log(this.name);
+  },
+  arrow: function arrow() {
+    console.log(_this.name);
   }
 };
-
-// console.log(dknLiteral.getFullName());
-
-function User(first, last) {
-  this.firstName = first;
-  this.lastName = last;
-} // 리터럴 방식
-
-User.prototype.getFullName = function () {
-  return "".concat(this.firstName, " ").concat(this.lastName);
-}; // prototype 이해
-
-var amy = new User('Amy', 'cousious');
-var neo = new User('Neo', 'Smith');
-console.log(amy);
-console.log(neo);
-console.log(amy.getFullName());
-console.log(neo.getFullName());
-var a = [1, 2, 3];
-var judgeIncludes = a.includes(3);
-console.log(judgeIncludes);
-judgeIncludes = a.includes(4);
-console.log(judgeIncludes);
+firstPerson.normal();
+firstPerson.arrow();
+var amy = {
+  name: 'Amy',
+  normal: firstPerson.normal,
+  arrow: firstPerson.arrow
+};
+amy.normal();
+amy.arrow();
+var timer = {
+  name: "timer",
+  timeout: function timeout() {
+    var _this2 = this;
+    setTimeout(function () {
+      console.log(_this2.name);
+    }, 2000);
+  }
+};
+timer.timeout();
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -329,5 +320,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","class.js"], null)
-//# sourceMappingURL=/class.c714751a.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","this.js"], null)
+//# sourceMappingURL=/this.c7fb2573.js.map
