@@ -117,35 +117,61 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"getType.js":[function(require,module,exports) {
-"use strict";
+})({"main.js":[function(require,module,exports) {
+var count = 0;
+var timer = 0;
+var loadArray = [];
+for (var i = 0; i < 50; i++) loadArray[i] = '-';
+var h1El = document.querySelector('#message');
+var h1El2 = document.querySelector('#time');
+var h2El = document.querySelector('#ment');
+var loadTextNode = document.createTextNode(loadArray.join(''));
+var endTextNode = document.createTextNode(' status: connected successful');
+var timerTextNode = document.createTextNode("Time: ".concat(timer.toFixed(2), "ms")); // 타이머 초기값 설정
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = getType;
-function getType(data) {
-  return Object.prototype.toString.call(data).slice(8, -1);
-}
-},{}],"main.js":[function(require,module,exports) {
-"use strict";
+// h1El과 h1El2에 텍스트 노드 추가
+h1El.appendChild(loadTextNode);
+h1El2.appendChild(timerTextNode);
+var onlineStatus = document.createElement('span'); // 상태 표시를 위한 span 요소 생성
+onlineStatus.textContent = '    ●'; // 동그라미 점 추가
+onlineStatus.style.color = 'green'; // 초록색으로 설정
+onlineStatus.style.fontSize = '10px'; // 점의 크기 조절
+onlineStatus.style.marginRight = '5px'; // 텍스트와의 간격 조절
 
-var _getType = _interopRequireDefault(require("./getType"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-console.log(_typeof("hello, world!"));
-console.log(_typeof(123));
-console.log(_typeof(true));
-console.log(typeof undefined === "undefined" ? "undefined" : _typeof(undefined));
-console.log(_typeof(null));
-console.log(_typeof({}));
-console.log(_typeof([]));
-console.log((0, _getType.default)(123));
-console.log((0, _getType.default)(false));
-console.log((0, _getType.default)(null));
-console.log((0, _getType.default)({}));
-console.log((0, _getType.default)([]));
-},{"./getType":"getType.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var loadInterval = setInterval(function () {
+  loadArray[count] = '*';
+  loadTextNode.data = loadArray.join('');
+  timer += 0.0001;
+  timerTextNode.data = "Time: ".concat(timer.toFixed(4), "ms"); // 타이머 업데이트
+  count++;
+  if (count === loadArray.length) {
+    clearInterval(loadInterval);
+    var br1 = document.createElement('br'); // <br> 요소 생성
+    var br2 = document.createElement('br'); // <br> 요소 생성
+    var br3 = document.createElement('br'); // <br> 요소 생성
+    h2El.appendChild(endTextNode); // 연결 성공 메시지 추가
+    h2El.appendChild(onlineStatus);
+    h2El.appendChild(br1); // <br> 요소 추가하여 줄바꿈
+    h2El.appendChild(document.createTextNode("Time: ".concat(timer.toFixed(3), "ms"))); // 타이머 최종 값 추가
+    h2El.appendChild(br2);
+    // 'IP Address:' 메시지와 'hidden' 색상 변경
+    var ipAddressText = document.createTextNode('IP Address: ');
+    var hiddenTextSpan = document.createElement('span'); // 'hidden'을 위한 span 요소
+    hiddenTextSpan.textContent = 'hidden';
+    hiddenTextSpan.style.color = 'gray'; // 글자 색상을 변경할 색상 지정
+    // 'IP Address:'와 'hidden' 메시지 추가
+    h2El.appendChild(ipAddressText);
+    h2El.appendChild(hiddenTextSpan);
+    h2El.appendChild(br3);
+    var policyText = document.createTextNode('Policy: ');
+    var openTextSpan = document.createElement('span');
+    openTextSpan.textContent = 'All-Standards';
+    openTextSpan.style.color = 'brown';
+    h2El.appendChild(policyText);
+    h2El.appendChild(openTextSpan);
+  }
+}, 15);
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -170,7 +196,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6925" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8075" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

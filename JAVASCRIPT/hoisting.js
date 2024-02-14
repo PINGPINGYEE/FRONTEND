@@ -7,11 +7,11 @@ double();
 
 function double() {
   console.log(a*2);
-}
+} // 호이스팅
 
 arrowDouble = x => x*2;
-console.log(arrowDouble(a));
+console.log(arrowDouble(a)); // 화살표 함수
 
-( function () {
+(function () {
   console.log(a*2);
-} ())
+} ()) // IIFE
