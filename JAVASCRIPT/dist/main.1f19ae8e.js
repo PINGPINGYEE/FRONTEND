@@ -126,7 +126,7 @@ var h1El = document.querySelector('#message');
 var h1El2 = document.querySelector('#time');
 var h2El = document.querySelector('#ment');
 var loadTextNode = document.createTextNode(loadArray.join(''));
-var endTextNode = document.createTextNode(' status: connected successful');
+var endTextNode = document.createTextNode(' status: connected');
 var timerTextNode = document.createTextNode("Time: ".concat(timer.toFixed(2), "ms")); // 타이머 초기값 설정
 
 // h1El과 h1El2에 텍스트 노드 추가
@@ -149,23 +149,39 @@ var loadInterval = setInterval(function () {
     var br1 = document.createElement('br'); // <br> 요소 생성
     var br2 = document.createElement('br'); // <br> 요소 생성
     var br3 = document.createElement('br'); // <br> 요소 생성
+    var br4 = document.createElement('br'); // <br> 요소 생성
+    var br5 = document.createElement('br'); // <br> 요소 생성
     h2El.appendChild(endTextNode); // 연결 성공 메시지 추가
     h2El.appendChild(onlineStatus);
     h2El.appendChild(br1); // <br> 요소 추가하여 줄바꿈
-    h2El.appendChild(document.createTextNode("Time: ".concat(timer.toFixed(3), "ms"))); // 타이머 최종 값 추가
+    h2El.appendChild(document.createTextNode("time: ".concat(timer.toFixed(3), "ms"))); // 타이머 최종 값 추가
+    h2El.appendChild(br4);
+    var typeText = document.createTextNode('access_type: ');
+    var typeTextSpan = document.createElement('span');
+    typeTextSpan.textContent = 'assistant';
+    typeTextSpan.style.color = 'black';
+    h2El.appendChild(typeText);
+    h2El.appendChild(typeTextSpan);
+    h2El.appendChild(br5);
+    var serverText = document.createTextNode('sys_server: ');
+    var serverTextSpan = document.createElement('span');
+    serverTextSpan.textContent = 'inner-55476::jp=`5';
+    serverTextSpan.style.color = 'black';
+    h2El.appendChild(serverText);
+    h2El.appendChild(serverTextSpan);
     h2El.appendChild(br2);
     // 'IP Address:' 메시지와 'hidden' 색상 변경
-    var ipAddressText = document.createTextNode('IP Address: ');
+    var ipAddressText = document.createTextNode('ip_address: ');
     var hiddenTextSpan = document.createElement('span'); // 'hidden'을 위한 span 요소
-    hiddenTextSpan.textContent = 'hidden';
-    hiddenTextSpan.style.color = 'gray'; // 글자 색상을 변경할 색상 지정
+    hiddenTextSpan.textContent = 'ACCESS-DENIED';
+    hiddenTextSpan.style.color = 'red'; // 글자 색상을 변경할 색상 지정
     // 'IP Address:'와 'hidden' 메시지 추가
     h2El.appendChild(ipAddressText);
     h2El.appendChild(hiddenTextSpan);
     h2El.appendChild(br3);
-    var policyText = document.createTextNode('Policy: ');
+    var policyText = document.createTextNode('policy: ');
     var openTextSpan = document.createElement('span');
-    openTextSpan.textContent = 'All-Standards';
+    openTextSpan.textContent = 'all-standards';
     openTextSpan.style.color = 'brown';
     h2El.appendChild(policyText);
     h2El.appendChild(openTextSpan);
@@ -196,7 +212,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8075" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14090" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
