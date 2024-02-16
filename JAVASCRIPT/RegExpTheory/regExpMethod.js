@@ -124,4 +124,4 @@ console.log(
 
 console.log(
   newStr.match(/(?<=@).{1,}/g)
-);``
+);
