@@ -23,3 +23,12 @@
 >   5. Get-ExecutionPolicy 명령어로 실행 정책 변경 체크
 3. 화살표 키보드로 vue 버전 선택(vue3 추천)
 4. cd를 통해 프로젝트 폴더 접근
+5. code . -r 명령을 통해 코드 접근
+>> npm run dev시 실행이 안될 시
+>> * package.json가 문제일 경우
+>>   1. script가 dev인지 확인해보기
+>> * version이 문제일 경우
+>>   1. package.json 접근
+>>   2. dev를 node --openssl-legacy-provider node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development로 script 수정
+>> * export 'createElementBlock' (imported as '_createElementBlock') was not found in 'vue'가 오류로 뜰 시
+>>   1. npm i vue@next 명령어 실행
