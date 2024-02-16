@@ -77,3 +77,51 @@ console.log(
 console.log(
   str.match(/\b\w{2,3}\b/g) // \b는 경계를 두는 것
 );
+
+console.log(
+  str.match(/[fow]/g)
+);
+
+console.log(
+  str.match(/[0-9]/g)
+);
+
+console.log(
+  str.match(/[0-9]{1,}/g)
+);
+
+console.log(
+  str.match(/\w/g)
+);
+
+console.log(
+  str.match(/\bf\w{1,}\b/g)
+);
+
+const h = `  the hello  world  !
+
+`
+
+console.log(
+  h.match(/\s/g)
+);
+
+console.log(
+  h.replace(/\s/g, '')
+);
+
+const newStr = `
+010-1234-5678
+theabcdef@abc.com
+https://www.omdbapi.com/?apikey=7035c60c&s=frozen
+The quick brown fox jumps over the lazy dog.
+abbcccddd
+`
+
+console.log(
+  newStr.match(/.{1,}(?=@)/g)
+);
+
+console.log(
+  newStr.match(/(?<=@).{1,}/g)
+);``

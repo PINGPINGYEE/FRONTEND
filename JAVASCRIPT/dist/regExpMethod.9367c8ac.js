@@ -153,6 +153,17 @@ console.log(str.match(/\w{2,3}/g) // \w는 알파벳을 포함한 모든 숫자
 );
 console.log(str.match(/\b\w{2,3}\b/g) // \b는 경계를 두는 것
 );
+console.log(str.match(/[fow]/g));
+console.log(str.match(/[0-9]/g));
+console.log(str.match(/[0-9]{1,}/g));
+console.log(str.match(/\w/g));
+console.log(str.match(/\bf\w{1,}\b/g));
+var h = "  the hello  world  !\n\n";
+console.log(h.match(/\s/g));
+console.log(h.replace(/\s/g, ''));
+var newStr = "\n010-1234-5678\ntheabcdef@abc.com\nhttps://www.omdbapi.com/?apikey=7035c60c&s=frozen\nThe quick brown fox jumps over the lazy dog.\nabbcccddd\n";
+console.log(newStr.match(/.{1,}(?=@)/g));
+console.log(newStr.match(/(?<=@).{1,}/g));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -178,7 +189,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14090" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8277" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
