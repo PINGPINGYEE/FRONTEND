@@ -24,6 +24,7 @@
 3. 화살표 키보드로 vue 버전 선택(vue3 추천)
 4. cd를 통해 프로젝트 폴더 접근
 5. code . -r 명령을 통해 코드 접근
+6. npm run dev로 실행
 >> npm run dev시 실행이 안될 시
 >> * package.json가 문제일 경우
 >>   1. script가 dev인지 확인해보기
